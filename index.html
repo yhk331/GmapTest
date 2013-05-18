@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<title>GMAP Test</title>
+		<meta name="description" content="" />
+		<meta name="author" content="Yao Hong Kok" />
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+		
+		<style>
+      		html, body, div, #map_canvas {
+        	margin: 10;
+        	padding: 0;
+        	height: 90%;
+      		}
+    	</style>
+		
+		<script type="text/javascript"
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZgtP0A9fPfhqKg7sz9pAJ_etOXCCbPpg&sensor=false">
+		</script>
+		
+		<script type="text/javascript" src = "gmap.js">
+		</script>
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+	</head>
+
+	<body>
+		<div>
+			<header>
+				<h1>GMAP TEST</h1>
+			</header>
+			<nav>
+				<p>
+					<a href="/">GMAP Test</a>
+				</p>
+				<p>
+					<a href="/contact">Contact</a>
+				</p>
+			</nav>
+
+			<div id="GAH" style="height:10%">Test.</div>
+			<div id="map_canvas"> </div>
+
+			<footer>
+				<p>
+					&copy; Copyright  by Yao Hong Kok
+				</p>
+			</footer>
+		</div>
+	</body>
+</html>
