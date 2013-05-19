@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<title>GMAP Test</title>
+		<meta name="description" content="" />
+		<meta name="author" content="Yao Hong Kok" />
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+		
+		<link href="style.css" rel="stylesheet" type="text/css" />
+		
+		<script type="text/javascript"
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZgtP0A9fPfhqKg7sz9pAJ_etOXCCbPpg&sensor=false">
+		</script>
+		
+		<script type="text/javascript" src = "gmap.js">
+		</script>
+
+	</head>
+
+	<body>
+		<div id="mapCanvas">
+		</div>
+		<div id="popUp">
+			<p><b>Add Photo</b></p>
+			<div id="textBox">
+				<form action="demo_form.asp">
+					Description:<br>
+					<input type="text" name="Description" size="60"><br>
+				</form> 
+			</div>
+			<div id="textBox">
+				<form action="demo_form.asp">
+					Date: <input type="text" name="Date" size="20"><br>
+				</form>
+			</div>
+			<div id="textBox">
+				<form action="demo_form.asp">
+					Time: <input type="text" name="Time" size="20"><br>
+				</form>
+			</div>
+			
+			<div id="textBox">
+				<form action="demo_form.asp">
+					Image:<br>
+					<input type="text" name="image_location" size="40"><input type="submit" value="Browse"><br>
+				</form>
+			</div>
+			
+			<div id="textBox">
+				<input type="submit" value="Submit"><input type="submit" value="Cancel">
+			</div>
+		</div>
+		
+	</body>
+</html>

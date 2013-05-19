@@ -1,0 +1,32 @@
+@charset "UTF-8";
+/* CSS Style Sheet*/
+
+html,body{
+    width: 100%;
+    height: 100%;	
+}
+
+#mapCanvas {
+    width: 98%;
+    height: 98%;
+    z-index: 1;
+}
+
+#popUp {
+    width: 30%;
+    height: 70%;
+    padding: 2%;
+    background-color: #FFFFFF;
+    z-index: 2;
+    position: absolute;
+    top: 20%;
+    left: 60%;
+    border: 2px #000000 solid;
+}
+
+#textBox {
+    font: bold;
+    width: 90%;
+    height: 15%;
+    margin: 2%;
+}

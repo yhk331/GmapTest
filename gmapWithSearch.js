@@ -9,11 +9,11 @@
 	});
 	
 	//Initialize the map when windows starts up
-	google.maps.event.addDomListener(window, 'load', init);
-	//google.maps.event.addListener(mapObj, 'rightclick', function(event){alert('Test');});
-	
+	$(document).ready(function(){
+		google.maps.event.addDomListener(window, 'load', init);
+		//google.maps.event.addListener(mapObj, 'rightclick', function(event){alert('Test');});
+	});
 	function init() {
-
 		var mapOptions = {
 			center : new google.maps.LatLng(43.6481, -79.4042),
 			zoom : 15,
@@ -26,7 +26,17 @@
 			mapTypeId : google.maps.MapTypeId.ROADMAP
 		};
 		
+		
 		mapObj = new google.maps.Map(document.getElementById("mapCanvas"), mapOptions);
+		
+		var defaultBounds = new google.maps.LatLngBounds( 
+  			new google.maps.LatLng(43.6281, -79.4242),
+      		new google.maps.LatLng(43.6681, -79.3842)
+      	);
+  		mapObj.fitBounds(defaultBounds);
+
+  		var input = /** @type {HTMLInputElement} */(document.getElementById('target'));
+  		var searchBox = new google.maps.places.SearchBox(input);
 		
 		//google.maps.event.clearListeners(mapObj, 'dblclick');
 		google.maps.event.addListener(mapObj, 'click', function() {
@@ -34,9 +44,12 @@
 	    });
 	    
 	    google.maps.event.addListener(mapObj, 'dblclick', function(event){
-	    	var descriptionNew = 'Cherry blossom viewing in High Park.';
-	    	var photoNew = new PhotoClass('image/cb.jpg','4:00pm','May 5, 2013',descriptionNew,event.latLng);
-	    	addPhotoMarker(photoNew);
+		var css = {
+		    left: $('body').width()/2 - $('#popUp').width()/2,
+		    top: $('body').height()/2 - $('#popUp').height()/2
+		};
+		$('.screener').show();
+		$('#popUp').css(css).show();
 	    	event.stop();
 	    });
 	    
@@ -44,6 +57,31 @@
 	    var photo1 = new PhotoClass('image/cb.jpg','4:00pm','May 5, 2013',description,new google.maps.LatLng(43.6481,-79.4042) );
 	    
 	    addPhotoMarker(photo1);
+	    
+	    google.maps.event.addListener(searchBox, 'places_changed', function() {
+	    	//alert('PC');
+    		var places = searchBox.getPlaces();
+
+    		var bounds = new google.maps.LatLngBounds();
+    		for (var i = 0, place; place = places[i]; i++) {
+      			var image = {
+        		url: place.icon,
+        		size: new google.maps.Size(71, 71),
+        		origin: new google.maps.Point(0, 0),
+        		anchor: new google.maps.Point(17, 34),
+        		scaledSize: new google.maps.Size(25, 25)
+      			};
+
+      			bounds.extend(place.geometry.location);
+    		}
+
+    		mapObj.fitBounds(bounds);
+    	});
+    	
+    	google.maps.event.addListener(mapObj, 'bounds_changed', function() {
+    		var bounds = mapObj.getBounds();
+    		searchBox.setBounds(bounds);
+  		});
 
 
 	}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<title>GMAP Test</title>
+		<meta name="description" content="" />
+		<meta name="author" content="Yao Hong Kok" />
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+		
+		<link href="style.css" rel="stylesheet" type="text/css" />
+		
+		<!--<style>
+      		html,body{
+      		width: 100%;
+        	height: 100%;	
+      		}
+      		
+      		#target {
+        	width: 345px;
+      		}
+      		
+      		#mapCanvas {
+			width: 98%;
+        	height: 98%;
+        	z-index: 1;
+      		}
+      		
+      		#panel{
+      		position: absolute;
+      		top: 5%;
+    		left: 35%;
+      		z-index:2;
+      		}
+      		
+  </style>-->
+  
+  		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		
+		<script type="text/javascript"
+		src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCOstumXmtltLrFfGz-G4e-bBs9U1X-MwY&sensor=false">
+		</script>
+		
+		<script type="text/javascript" src = "gmapWithSearch.js">
+		</script>
+		
+		<script type="text/javascript">
+			$(document).ready(function (){
+				$('#cancel').click(function(){
+					$('#popUp').hide();
+					$('.screener').hide();
+				});	
+			});
+		</script>
+
+	</head>
+
+	<body>
+		<div id="panel" align="center">
+      		<input id="target" type="text" placeholder="Search Box">
+    	</div>
+		<div id="mapCanvas"> </div>
+		
+		<div id="popUp" style="display:none;">
+			<p><b>Add Photo</b></p>
+			<div class="description_wrapper wrapper">
+				Description:<br>
+				<textarea type="text" name="Description"></textarea><br> 
+			</div>
+			<div class="date_wrapper wrapper">
+				Date: <input type="text" name="Date" size="20"><br>
+			</div>
+			<div class="time_wrapper wrapper">
+				Time: <input type="text" name="Time" size="20"><br>
+			</div>
+			
+			<div class="image_wrapper wrapper">
+				Image:<br>
+				<input type="file" name="image_location" size="40"><br>
+			</div>
+			
+			<div class="buttons_wrapper wrapper">
+				<input id="submit" type="submit" value="Submit">
+				<input id="cancel" type="submit" value="Cancel">
+			</div>
+		</div>
+		<div class="screener" style="display:none;">	
+		</div>
+		
+	</body>
+</html>

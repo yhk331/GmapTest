@@ -1,0 +1,66 @@
+@charset "UTF-8";
+/* CSS Style Sheet*/
+
+html,body{
+    width: 100%;
+    height: 100%;	
+}
+
+#target {
+    width: 345px;
+}
+
+#mapCanvas {
+    width: 98%;
+    height: 98%;
+    z-index: 1;
+}
+
+#panel{
+    position: absolute;
+    top: 5%;
+    left: 35%;
+    z-index:2;
+}
+
+#popUp {
+    width: 30%;
+    padding: 2%;
+    background-color: #FFFFFF;
+    z-index: 101;
+    position: absolute;
+    top: 20%;
+    left: 60%;
+    border: 2px #000000 solid;
+    border-radius: 10px;
+    box-shadow: 5px 10px 10px black;
+}
+
+.description_wrapper  textarea {
+    resize: none;
+    width: 100%;
+    height: 100px;
+}
+
+.wrapper {
+    margin: 10px 0px;
+}
+
+#textBox {
+    font: bold;
+    width: 90%;
+    height: 15%;
+    margin: 2%;
+}
+
+.screener {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    background-color: rgba(101, 92, 92, 0.5);
+    z-index: 100;
+}

@@ -34,14 +34,17 @@
 	    });
 	    
 	    google.maps.event.addListener(mapObj, 'dblclick', function(event){
-	    	var descriptionNew = 'Cherry blossom viewing in High Park.';
-	    	var photoNew = new PhotoClass('image/cb.jpg','4:00pm','May 5, 2013',descriptionNew,event.latLng);
-	    	addPhotoMarker(photoNew);
+		var css = {
+		    left: $('body').width()/2 - $('#popUp').width()/2,
+		    top: $('body').height()/2 - $('#popUp').height()/2
+		};
+		$('.screener').show();
+		$('#popUp').css(css).show();
 	    	event.stop();
 	    });
 	    
 	    var description = 'Cherry blossom viewing in High Park.';
-	    var photo1 = new PhotoClass('image/cb.jpg','4:00pm','May 5, 2013',description,new google.maps.LatLng(43.6481,-79.4042) );
+	    var photo1 = new PhotoClass('image/cb.jpg','4:00pm','May 5, 2013',description,43.6481, -79.4042);
 	    
 	    addPhotoMarker(photo1);
 
@@ -79,12 +82,12 @@
 	    });
 	}
 
-	function PhotoClass(photoSrc,time,date,description,latLng) {
+	function PhotoClass(photoSrc,time,date,description,lat,lng) {
 		this.description = description;
 		this.time = time;
 		this.date = date;
 		this.photoSrc = photoSrc;
-		this.latLng = latLng;
+		this.latLng = new google.maps.LatLng(lat, lng);
 
 	}
 
